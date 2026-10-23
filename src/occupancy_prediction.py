@@ -1,6 +1,5 @@
 """
 MMA3001 Occupancy Prediction Project.
-
 This module contains functions used to prepare data, train machine-learning models, and evaluate occupancy predictions.
 """
 
@@ -10,6 +9,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsRegressor
 
+# 1. calculate dectection rate
 def calculate_detection_rates(y_true, y_pred):
     """
     Calculate occupied and unoccupied detection rates.
@@ -36,7 +36,7 @@ def calculate_detection_rates(y_true, y_pred):
 
     return occupied_rate, unoccupied_rate
 
-
+# 2. calculate balanced accuracy
 def calculate_balanced_accuracy(occupied_rate, unoccupied_rate):
     """
     Calculate balanced accuracy from the occupied and unoccupied detection rates.
@@ -55,7 +55,7 @@ def calculate_balanced_accuracy(occupied_rate, unoccupied_rate):
 
     return balanced_accuracy
 
-
+# 3. run Linear Regression
 def run_linear_regression(x_train, y_train, x_test):
     """
     Train a Linear Regression model and predict occupancy values.
@@ -82,7 +82,7 @@ def run_linear_regression(x_train, y_train, x_test):
 
     return model, y_pred
 
-
+# 4. run KNN
 def run_knn(x_train, y_train, x_test, k=1):
     """
     Train a KNN model and predict occupancy values.
@@ -104,10 +104,7 @@ def run_knn(x_train, y_train, x_test, k=1):
         Predicted occupancy values for the test data.
     """
 
-    model = Pipeline([
-        ("scale", StandardScaler()),
-        ("model", KNeighborsRegressor(n_neighbors=k))
-    ])
+    model = Pipeline([("scale", StandardScaler()), ("model", KNeighborsRegressor(n_neighbors=k))])
 
     model.fit(x_train, y_train)
     y_pred = model.predict(x_test)
