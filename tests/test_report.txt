@@ -1,0 +1,9 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.16, pytest-8.4.2, pluggy-1.7.0
+rootdir: /content/MMA3001-Project-Prediction-Occupied-Unoccupied
+plugins: anyio-4.15.1, langsmith-0.14.11, platformdirs-4.13.4, typeguard-4.6.0
+collected 4 items
+
+tests/test_occupancy_prediction.py ....                                  [100%]
+
+============================== 4 passed in 1.49s ===============================
