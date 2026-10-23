@@ -12,8 +12,8 @@ The environmental measurements used are:
 
 ## Output:
 The output is room occupancy status:
-1 = Occupied
-0 = Unoccupied
+- 1 = Occupied
+- 0 = Unoccupied
 
 ## Methods:
 Two machine-learning methods were used:
