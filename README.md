@@ -34,7 +34,7 @@ The Python libraries required to run the project are listed in requirements.txt.
 Install them using: pip install -r requirements.txt
 
 ## Testing:
-The source-code functions are tested using pytest.
+The source code functions are tested using pytest.
 Run the tests using: PYTHONPATH=. pytest
 All four tests passed successfully.
 
