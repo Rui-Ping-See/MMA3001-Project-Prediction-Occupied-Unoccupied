@@ -31,3 +31,21 @@ def calculate_detection_rates(y_true, y_pred):
     unoccupied_rate = (TN / (TN + FP)) * 100
 
     return occupied_rate, unoccupied_rate
+
+def calculate_balanced_accuracy(occupied_rate, unoccupied_rate):
+    """
+    Calculate balanced accuracy from the occupied and unoccupied detection rates.
+    Parameters:
+    occupied_rate : float
+        Percentage of occupied samples correctly detected.
+    unoccupied_rate : float
+        Percentage of unoccupied samples correctly detected.
+
+    Returns:
+    balanced_accuracy : float
+        Average of the occupied and unoccupied detection rates.
+    """
+
+    balanced_accuracy = (occupied_rate + unoccupied_rate) / 2
+
+    return balanced_accuracy
