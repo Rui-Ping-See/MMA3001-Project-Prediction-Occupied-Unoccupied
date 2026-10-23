@@ -5,6 +5,7 @@ This module contains functions used to prepare data, train machine-learning mode
 """
 
 import numpy as np
+from sklearn.linear_model import LinearRegression
 
 def calculate_detection_rates(y_true, y_pred):
     """
@@ -32,6 +33,7 @@ def calculate_detection_rates(y_true, y_pred):
 
     return occupied_rate, unoccupied_rate
 
+
 def calculate_balanced_accuracy(occupied_rate, unoccupied_rate):
     """
     Calculate balanced accuracy from the occupied and unoccupied detection rates.
@@ -49,3 +51,30 @@ def calculate_balanced_accuracy(occupied_rate, unoccupied_rate):
     balanced_accuracy = (occupied_rate + unoccupied_rate) / 2
 
     return balanced_accuracy
+
+
+def run_linear_regression(x_train, y_train, x_test):
+    """
+    Train a Linear Regression model and predict occupancy values.
+
+    Parameters:
+    x_train : array
+        Training input data containing CO2, temperature and humidity.
+    y_train : array
+        Training occupancy values.
+    x_test : array
+        Testing input data used to make predictions.
+
+    Returns:
+    model : LinearRegression
+        Trained Linear Regression model.
+    y_pred : array
+        Predicted occupancy values for the test data.
+    """
+
+    model = LinearRegression()
+    model.fit(x_train, y_train)
+
+    y_pred = model.predict(x_test)
+
+    return model, y_pred
