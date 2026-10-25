@@ -6,9 +6,9 @@ Can environmental sensor measurements be used to predict whether a room is occup
 
 ## Inputs:
 The environmental measurements used are:
-1. CO2 concentration 
-2. Temperature
-3. Humidity
+1. CO2 concentration (ppm)
+2. Temperature (°C)
+3. Humidity (HR%)
 
 ## Output:
 The output is room occupancy status:
@@ -19,6 +19,7 @@ The output is room occupancy status:
 Two machine-learning methods were used:
 1. Linear Regression
 2. K-Nearest Neighbours Regression (KNN) 
+
 The methods were compared using overall accuracy, occupied detection rate, unoccupied detection rate, balanced accuracy and computational runtime.
 
 ## Datasets:
@@ -27,6 +28,7 @@ The following files are required to run the notebook:
 - 5EnvSensor_MayToDec2024_180kRows.zip
 - 5occupancySensor_MayToDec2024_9MRows.zip
 - Sensor ID and Locations.xlsx
+
 These files should be uploaded into the Colab environment before running the data preparation and analysis sections of the notebook.
 
 ## Repository Structure:
